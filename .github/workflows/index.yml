@@ -1,0 +1,25 @@
+name: Update Index
+
+on:
+  push:
+    paths:
+      - 'docs/**/*.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Generate index
+        run: python scripts/index.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.md
+          git diff --staged --quiet || git commit -m "style: update index.md"
+          git push

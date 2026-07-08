@@ -1,6 +1,5 @@
 ![Logo](./logo.png)
-# Compendium
-
+---
 This compendium contains stuff I write on information that interests me.
 
 All information will contain sources per section.

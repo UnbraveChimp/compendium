@@ -5,6 +5,9 @@ on:
     paths:
       - 'docs/**/*.md'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
